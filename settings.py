@@ -7,6 +7,7 @@ from storage.firebase_persistance import FirebasePersistence
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+GROUP_CHAT_ID = os.getenv('GROUP_CHAT_ID')
 cred = credentials.Certificate("./firebase.json")
 
 firebase_admin.initialize_app(cred)
