@@ -44,7 +44,7 @@ def main():
         bot.send_message(chat_id=settings.GROUP_CHAT_ID, text=text)
 
 
-def webhook(request):
+def pubsub(event, context):
     """Webhook for the telegram bot. This Cloud Function only executes within a certain
     time period after the triggering event.
     Args:
@@ -53,16 +53,9 @@ def webhook(request):
         Response text.
     """
 
-    if request.method == "POST":
-        for user in has_birthdate():
-            text = f"У @{user.id} сегодня День Рождения 🥳"
-            bot.send_message(chat_id=settings.GROUP_CHAT_ID, text=text)
-
-        return "ok"
-    else:
-        # Only POST accepted
-        logger.warning("Only POST method accepted")
-        return "error"
+    for user in has_birthdate():
+        text = f"У @{user.id} сегодня День Рождения 🥳"
+        bot.send_message(chat_id=settings.GROUP_CHAT_ID, text=text)
 
 
 if __name__ == '__main__':

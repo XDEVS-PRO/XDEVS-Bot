@@ -1,5 +1,4 @@
 import logging
-import db
 from datetime import datetime
 
 from telegram import ReplyKeyboardMarkup, Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
@@ -7,7 +6,8 @@ from telegram.ext import ConversationHandler, MessageHandler, Filters, CallbackC
     Dispatcher, CommandHandler
 
 import settings
-from decorators import redirect_to_user_chat
+from core import db
+from core.decorators import redirect_to_user_chat
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)

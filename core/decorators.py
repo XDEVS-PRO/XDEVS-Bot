@@ -1,9 +1,9 @@
 from functools import wraps
 
 from telegram import ReplyKeyboardMarkup, Update
-from telegram.ext import CallbackContext, Dispatcher
+from telegram.ext import CallbackContext
 
-import db
+from core import db
 
 
 def redirect_to_user_chat(markup: ReplyKeyboardMarkup):
